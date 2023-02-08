@@ -4,13 +4,17 @@ formEl.addEventListener('submit', onFormSubmit)
 
 function onFormSubmit(event){
     event.preventDefault()
-    const email = event.currentTarget.elements.email.value;
-    const password = event.currentTarget.elements.password.value
+    const email = event.currentTarget.email.value.trim();
+    const password = event.currentTarget.password.value
     const formData = {
         email,
         password
     }
-    email === "" || password === "" ? alert("Треба заповнити усі поля")
-    : console.log(formData);
-  event.currentTarget.reset();
+  if (email === "" || password === ""){
+    alert("Треба заповнити усі поля")
+  } 
+  else {
+    console.log(formData);
+    event.currentTarget.reset();
+  }
 }

@@ -9,7 +9,10 @@ const ingredients = [
 
 const ingredientsList = document.querySelector("#ingredients")
 
-const innerIngredientList = ingredients.reduce(
-  (previos, currentItem) => previos + `<li>${currentItem}</li>`, "")
-
-ingredientsList.innerHTML = innerIngredientList;
+const newItems = ingredients.map(function(item){
+  const ingredientItem = document.createElement('li')
+  ingredientItem.classList.add('item')
+  ingredientItem.textContent = item
+  return ingredientItem
+})
+ingredientsList.append(...newItems)
